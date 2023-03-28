@@ -28,57 +28,70 @@
     </nav>
     
     
-    <div id="Cuadrado" >
+    <form class="row g-3">
+      <div class="col-md-4">
+        <label for="validationServer01" class="form-label">Nombre</label>
+        <input type="text" class="form-control is-invalid" id="validationServer01" required>
+        <div class="valid-feedback">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationServer02" class="form-label">Apellido</label>
+        <input type="text" class="form-control is-invalid" id="validationServer02"  required>
+        <div class="valid-feedback">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationServerUsername" class="form-label">usuario</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend3">@</span>
+          <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">
 
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="nombre@gmail.com">
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" id="inputPassword4" placeholder="******">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Usuario</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="Usuario">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Direccion</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Conde 2345">
-        </div>
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">Barrio</label>
-          <input type="text" class="form-control" id="inputCity" placeholder="Barrio">
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">Provincia</label>
-          <select id="inputState" class="form-select">
-            <option selected><Choose...></option>
-            <option>CABA</option>
-            <option>Cordoba</option>
-            <option>Sant Fe</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Codigo Postal</label>
-          <input type="text" class="form-control" id="inputZip" placeholder="Codigo Postal">
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Terminos y Condiciones
-            </label>
-            
           </div>
         </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-        </div>
-      </form>
+      </div>
+      <div class="col-md-6">
+        <label for="validationServer03" class="form-label">Barrio</label>
+        <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+        <div id="validationServer03Feedback" class="invalid-feedback">
 
-    </DIV>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationServer04" class="form-label">Provincia</label>
+        <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+          <option selected disabled value="">Choose...</option>
+          <option>CABA</option>
+          <option>Cordoba</option>
+          <option>Santa Fe</option>
+        </select>
+        <div id="validationServer04Feedback" class="invalid-feedback">
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationServer05" class="form-label">codigo postal</label>
+        <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+        <div id="validationServer05Feedback" class="invalid-feedback">
+
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+          <label class="form-check-label" for="invalidCheck3">
+            De acuerdo con los terminos y condiciones
+          </label>
+          <div id="invalidCheck3Feedback" class="invalid-feedback">
+            Leer antes de aceptar
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
+    </form>
     
    
   </body>
