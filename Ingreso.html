@@ -92,59 +92,29 @@
         <button class="btn btn-primary" type="submit">Submit form</button>
       </div>
 
-      <div id="carrusel">
-
-        <img src="./propaganda2.jpg" alt="" id="ft1" width="1000px" height="350px" >
-        <img src="propaganda.jpg" alt="" id="ft2" style = "display: none;" width="1000px" height="350px">
-        
-        <button id="botonCarrusel" onclick="Carrusel()">
-          Aparecer carrusel
-        </button>
-
-        <button onclick="avanzar()">
-          Avanzar         
-        </button>
-      
-      </div>      
+     
     </form>
 
 
     <script>
-      id = 1;
-      function avanzar(){
-        document.getElementById("ft"+id).style = "display: none";
-        id++; 
-        if(id >2){
-          id = 1;
-        }
-
-        document.getElementById("ft"+id).style = "display: block";
-      
-       
-      }
-      
-      
-      function Carrusel(){
-
-        setInterval(avanzar, 3000);
-      }
+     
       
     
       var nombre = document.getElementById('validationServer01'); 
-      //nombre.addEventListener("input", validar);
+      nombre.addEventListener("input", validar);
       
       var apellido = document.getElementById('validationServer02'); 
-      //apellido.addEventListener("input", validar);
+      apellido.addEventListener("input", validar);
 
       var codPostal = document.getElementById('validationServer05'); 
-      //codPostal.addEventListener("input", validar);
+      codPostal.addEventListener("input", validar);
 
       var provincia = document.getElementById('validationServer04'); 
-      //provincia.addEventListener("input", validar);
+      provincia.addEventListener("input", validar);
       
       function validar(){
         
-        if(nombre.value.length > 3){
+        if(nombre.value.length >= 4){
           nombre.classList.add("is-valid");
           nombre.classList.remove("is-invalid");
         }else{
@@ -152,7 +122,7 @@
           codPostal.classList.add("is-invalid"); 
         }
           
-        if(apellido.value.length > 4){
+        if(apellido.value.length >= 5){
           apellido.classList.add("is-valid");
           apellido.classList.remove("is-invalid");
         }else{
