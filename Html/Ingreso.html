@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.js"integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  </head>
+  <body class="p-3 m-0 border-0 bd-example">
+
+
+    
+    <div class="collapse" id="navbarToggleExternalContent" >
+      <div class="bg-dark p-4">
+        <h5 class="text-white h4">TELEFONO: 11 7455-3457</h5>
+        <span class="text-muted">Toggleable via the navbar brand.</span>
+      </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 style="color: white;">Universidad de Buenos Aires</h1>
+      </div>
+    </nav>
+    
+    
+    <form class="row g-3" id="Formulario">
+      <div class="col-md-4">
+        <label for="validationServer01" class="form-label">Nombre</label>
+        <input name="nombre" type="text" class="form-control is-invalid " id="validationServer01" required>
+        <div class="valid-feedback">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationServer02" class="form-label">Apellido</label>
+        <input name="apellido" type="text" class="form-control is-invalid" id="validationServer02"  required>
+        <div class="valid-feedback">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationServerUsername" class="form-label">usuario</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend3">@</span>
+          <input name="usuario" type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationServer03" class="form-label">Barrio</label>
+        <input name="barrio" type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+        <div id="validationServer03Feedback" class="invalid-feedback">
+
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <label for="validationServer05" class="form-label">codigo postal</label>
+        <input name="codPostal" type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+        <div id="validationServer05Feedback" class="invalid-feedback">
+
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input name="terminos" class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+          <label class="form-check-label" for="invalidCheck3">
+            De acuerdo con los terminos y condiciones
+          </label>
+          <div id="invalidCheck3Feedback" class="invalid-feedback">
+            Leer antes de aceptar
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit" onclick=insertbase(event) >Submit form</button>
+      </div>
+
+     
+    </form>
+
+
+    <script>
+     
+      var nombre = document.getElementById('validationServer01'); 
+      nombre.addEventListener("input", validar);
+      
+      var apellido = document.getElementById('validationServer02'); 
+      apellido.addEventListener("input", validar);
+
+      var codPostal = document.getElementById('validationServer05'); 
+      codPostal.addEventListener("input", validar);
+
+      var provincia = document.getElementById('validationServer04'); 
+      provincia.addEventListener("input", validar);
+      
+      function validar(){
+        
+        if(nombre.value.length >= 4){
+          nombre.classList.add("is-valid");
+          nombre.classList.remove("is-invalid");
+        }else{
+          codPostal.classList.remove("is-valid");
+          codPostal.classList.add("is-invalid"); 
+        }
+          
+        if(apellido.value.length >= 5){
+          apellido.classList.add("is-valid");
+          apellido.classList.remove("is-invalid");
+        }else{
+          codPostal.classList.remove("is-valid");
+          codPostal.classList.add("is-invalid"); 
+        }      
+      
+        if(codPostal.value.length == 4){
+          codPostal.classList.add("is-valid");
+          codPostal.classList.remove("is-invalid"); 
+        }else{
+          codPostal.classList.remove("is-valid");
+          codPostal.classList.add("is-invalid"); 
+        }
+
+      } 
+      
+      function insertbase(e){
+
+        e.preventDefault();
+        console.log("entre");
+        $.ajax({
+        method: "post",
+        url:"http://localhost:3000/insertar",
+        data: $("#Formulario").serialize()
+      })
+
+      }
+    </script>   
+  </body>
+</html>
+
